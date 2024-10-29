@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 8001;
+const port = process.env.PORT || 8001;
 const URL = require('./models/url');
 const { connectToMongo } = require('./connect');
 const {restrictToLoggedinUserOnly, checkAuth} = require('./middlewares/auth')
@@ -11,7 +11,7 @@ const urlRoute = require('./routes/url');
 const staticRoute = require('./routes/staticRouter');
 const userRoute = require('./routes/user')
 // Connect to MongoDB
-connectToMongo("mongodb://localhost:27017/short-url")
+connectToMongo("mongodb://process.env.PORT/short-url")
     .then(() => console.log("connected to mongodb"))
     .catch(err => console.error('MongoDB connection error:', err));
 
@@ -69,6 +69,6 @@ app.get('/test', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log('App running on port ' + PORT);
+app.listen(port, () => {
+    console.log('App running on port ' + port);
 });
