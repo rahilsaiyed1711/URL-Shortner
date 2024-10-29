@@ -11,7 +11,7 @@ const urlRoute = require('./routes/url');
 const staticRoute = require('./routes/staticRouter');
 const userRoute = require('./routes/user')
 // Connect to MongoDB
-connectToMongo("mongodb://process.env.PORT/short-url")
+connectToMongo(process.env.MONGO_URL)
     .then(() => console.log("connected to mongodb"))
     .catch(err => console.error('MongoDB connection error:', err));
 
