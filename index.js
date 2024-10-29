@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 const URL = require('./models/url');
 const { connectToMongo } = require('./connect');
 const {restrictToLoggedinUserOnly, checkAuth} = require('./middlewares/auth')
